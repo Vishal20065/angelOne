@@ -7,10 +7,21 @@ import fundAddRoutes from "./routes/fundAddRoutes.js";
 import fundWithdrawRoutes from "./routes/fundWithdrawRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
 
+import cors from 'cors'
+
+
 dotenv.config();
 const app = express();
 
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: "*",       // ✅ allow all
+    credentials: true, // ⚠️ note: with "*" this may cause issues
+  })
+);
+
 
 // Routes
 app.use("/api/users", userRoutes);
