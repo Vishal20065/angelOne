@@ -6,6 +6,9 @@ import profitRoutes from "./routes/profitRoutes.js";
 import fundAddRoutes from "./routes/fundAddRoutes.js";
 import fundWithdrawRoutes from "./routes/fundWithdrawRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
+import order1Routes from "./routes/order1Routes.js";
+import order2Routes from "./routes/order2Routes.js";
+
 
 import cors from 'cors'
 
@@ -29,6 +32,9 @@ app.use("/api/profits", profitRoutes);
 app.use("/api/funds", fundAddRoutes);
 app.use("/api/fund-withdraw", fundWithdrawRoutes);
 app.use("/api/profiles", profileRoutes);
+app.use("/api/orders1", order1Routes);
+app.use("/api/orders2", order2Routes);
+
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
