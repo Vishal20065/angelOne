@@ -5,6 +5,7 @@ const fundAddSchema = new mongoose.Schema(
     name: { type: String, },
     account: { type: String},
     price: { type: Number },
+      date: { type: String },
     status: {
       type: String,
       enum: ["success", "pending"],
