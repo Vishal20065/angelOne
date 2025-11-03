@@ -9,7 +9,7 @@ import profileRoutes from "./routes/profileRoutes.js";
 import order1Routes from "./routes/order1Routes.js";
 import order2Routes from "./routes/order2Routes.js";
 
-
+import QRCode from "qrcode";
 import cors from 'cors'
 
 
@@ -36,6 +36,18 @@ app.use("/api/orders1", order1Routes);
 app.use("/api/orders2", order2Routes);
 
 
+
+const data = `
+Name: John Doe
+Email: john@example.com
+Post: Marketing Manager
+Profile Picture: https://yourdomain.com/images/john.jpg
+`;
+
+QRCode.toFile("profileQR.png", data, (err) => {
+  if (err) throw err;
+  console.log("QR Code created!");
+});
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
